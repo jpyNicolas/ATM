@@ -11,8 +11,4 @@ public sealed abstract class Transaction permits Deposit, WithDraw {
     public Account getSourceAccount() {
         return sourceAccount;
     }
-
-    public void setSourceAccount(Account sourceAccount) {
-        this.sourceAccount = sourceAccount;
-    }
 }
