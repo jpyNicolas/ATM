@@ -6,6 +6,6 @@ public class Main {
             Account account = new Account("1", "123", "2055", 5000.0, person);
             Database.addAccount(account);
             Handler.runATM();
-
+            Handler.runATM();
     }
 }
