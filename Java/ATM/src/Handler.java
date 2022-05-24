@@ -21,18 +21,31 @@ public class Handler {
                     System.out.println(account.getBalance());
                     break;
                 case 2:
-                    withDrawMoney(account);
+                    withDraw(account);
                     break;
                 case 3:
-
+                    deposit(account);
                     break;
             }
         }while (input != 0);
     }
-    private static void withDrawMoney(Account account){
+    private static void withDraw(Account account){
         System.out.print("How much money do you want to withdraw? ");
         double amount = scanner.nextDouble();
-        WithDraw withDraw = new WithDraw(account);
-        withDraw.operate(amount);
+        WithDraw wd = new WithDraw(account);
+        wd.operate(amount);
+    }
+    private static void deposit(Account account){
+        System.out.print("Enter destination card number : ");
+        String destinationCardNumber = scanner.next();
+        System.out.print("How much money do you want to transfer? ");
+        double amount = scanner.nextDouble();
+        Deposit dp = new Deposit(account, destinationCardNumber);
+        System.out.println("----Destination Account Info----");
+        System.out.println(dp.getDAInfo());
+        System.out.print("Y or N ? ");
+        String inpCh = scanner.next();
+        if (inpCh.equalsIgnoreCase("y"))
+            dp.operate(amount);
     }
 }

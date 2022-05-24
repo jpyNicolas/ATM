@@ -15,7 +15,13 @@ public non-sealed class Deposit extends Transaction{
             destinationAccount.changeBalance(amount + destinationBalance);
         }
     }
-    public Account getDestinationAccount(String destinationCardNumber){
+    private Account getDestinationAccount(String destinationCardNumber){
         return Database.findByAccountNumber(destinationCardNumber);
+    }
+
+    public String getDAInfo(){
+        return "Name : " + destinationAccount.getPerson().getName() +
+                " " + destinationAccount.getPerson().getFamily() + "\n" +
+                "Destination Card number :" + " " + destinationAccount.getAccountNumber();
     }
 }
